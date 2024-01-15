@@ -25,7 +25,7 @@ except:
 # -------------------------------------------------------------------
 # diropenbox
 # -------------------------------------------------------------------
-def diropenbox(msg=None, title=None, default=None):
+def diropenbox(msg=None, title=None, default=None, icon=None):
     """
     A dialog to get a directory name.
 
@@ -42,6 +42,9 @@ def diropenbox(msg=None, title=None, default=None):
     title = ut.getFileDialogTitle(msg, title)
     localRoot = tk.Tk()
     localRoot.withdraw()
+    if icon:
+        localRoot.iconbitmap(icon) 
+        
     localRoot.attributes("-topmost", True)
     if not default:
         default = None
