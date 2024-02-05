@@ -31,7 +31,7 @@ except:
 # -------------------------------------------------------------------
 
 
-def filesavebox(msg=None, title=None, default="", filetypes=None):
+def filesavebox(msg=None, title=None, default="", filetypes=None, icon=None):
     """
     A file to get the name of a file to save.
     Returns the name of a file, or None if user chose to cancel.
@@ -66,6 +66,9 @@ def filesavebox(msg=None, title=None, default="", filetypes=None):
     localRoot = tk.Tk()
     localRoot.withdraw()
     localRoot.attributes("-topmost", True)
+    if icon:
+        localRoot.iconbitmap(icon) 
+
 
     initialbase, initialfile, initialdir, filetypes = fbs.fileboxSetup(
         default, filetypes)
